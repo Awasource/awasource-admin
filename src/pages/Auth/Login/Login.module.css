@@ -1,0 +1,17 @@
+.login form {
+  width: min(550px, 90%);
+  display: block;
+  margin: auto;
+}
+.login label {
+  display: block;
+  text-align: left;
+  font-weight: 400;
+}
+.login input {
+  margin-top: 12px;
+}
+.forgot {
+  text-align: left;
+  display: block;
+}

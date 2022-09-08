@@ -1,0 +1,112 @@
+.main {
+  transition: 0.2s ease-in-out;
+  border-right: 1px solid #ececec;
+  min-height: 100vh;
+  width: 5rem;
+  overflow: scroll;
+  padding-bottom: 7rem;
+}
+.sidearrow {
+  position: absolute;
+  top: 20px;
+  right: -12px;
+  z-index: 1;
+  padding: 4px;
+  cursor: pointer;
+  background: linear-gradient(207deg, #030659 -140.96%, #fff 103.18%);
+  border-radius: 50%;
+  transition: transform 1s ease-in-out;
+}
+.rotate {
+  transform: rotate(180deg);
+}
+.main ul {
+  list-style-type: none;
+}
+.main svg {
+  max-width: 80px;
+  height: auto;
+}
+.main button {
+  border: none;
+  background: none;
+}
+.main a,
+.main button {
+  margin: 20px 0px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  width: 14rem;
+}
+.coming_soon {
+  align-items: center;
+  color: #009a49;
+}
+.coming_soon span {
+  display: none;
+}
+.main a span,
+.main button span,
+.coming_soon span {
+  visibility: hidden;
+  opacity: 0;
+}
+.wide {
+  width: 15rem;
+}
+
+.wide .coming_soon span {
+  display: inline;
+}
+.wide a span,
+.wide button span,
+.wide .coming_soon span {
+  visibility: visible;
+  opacity: 1;
+}
+
+.main a,
+.main button,
+.coming_soon {
+  padding: 10px 0 10px 20px;
+}
+.main a svg,
+.main button svg,
+.coming_soon svg {
+  margin-right: 20px;
+}
+.main li a:hover,
+.main li button:hover,
+.coming_soon:hover {
+  background: #04097b;
+  border-radius: 0px 15px 15px 0px;
+  color: #fff;
+}
+.stroke a:hover svg path,
+.stroke button:hover svg path {
+  stroke: #ffffff;
+}
+.fill a:hover svg path,
+.fill button:hover svg path,
+.coming_soon:hover svg path {
+  fill: #fff;
+}
+@media (max-width: 768px) {
+  .sidearrow {
+    display: none !important;
+  }
+  .main {
+    position: fixed;
+    left: -100vw;
+    transition: 0.5s ease-in-out;
+  }
+  .wide {
+    top: 50px;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: scroll;
+    background-color: #fff;
+  }
+}

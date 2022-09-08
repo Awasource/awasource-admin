@@ -1,0 +1,31 @@
+.btn {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  min-width: 100px;
+  font-weight: 500;
+}
+.yellow {
+  box-shadow: 0px 5px 4px rgba(249, 169, 16, 0.3);
+  background: #f9a910;
+  border: 1px solid #f9a910;
+}
+.blue {
+  background: #030659;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  border: 1px solid #030659;
+}
+.white {
+  border: 1px solid #030659;
+  color: #030659;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 5px 4px rgba(3, 6, 89, 0.15);
+}
+.white:hover {
+  color: #fff;
+  background: #030659;
+}

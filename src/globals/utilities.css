@@ -1,0 +1,85 @@
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex {
+  display: flex;
+}
+.column {
+  flex-direction: column;
+}
+.relative {
+  position: relative;
+}
+.mt-md {
+  margin-top: 2.5rem;
+}
+.mt-sm {
+  margin-top: 1rem;
+}
+.mb-sm {
+  margin-bottom: 1rem;
+}
+.mt-bg {
+  margin-top: 4.5rem;
+}
+.mb-bg {
+  margin-bottom: 4.5rem;
+}
+.mb-md {
+  margin-bottom: 2.5rem;
+}
+.center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.center {
+  text-align: center;
+}
+.min-height {
+  min-height: 100vh;
+}
+.full-width {
+  width: 100%;
+}
+.active {
+  background: #04097b;
+  border-radius: 0px 15px 15px 0px;
+  color: #fff !important;
+}
+.active[type="stroke"] svg path {
+  stroke: #ffffff;
+}
+.active[type="fill"] svg path {
+  fill: #ffffff;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #c8c5c5;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.textarea {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  height: 4rem;
+  border: 1px solid #c8c5c5;
+  border-radius: 7px;
+}
+.input:focus,
+.textarea:focus {
+  outline: 1px solid #030659;
+}
+
+@media screen and (max-width: 768px) {
+  .input {
+    width: 100%;
+  }
+}

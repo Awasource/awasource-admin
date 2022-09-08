@@ -1,0 +1,50 @@
+.t-md {
+  font-size: 16px;
+}
+.title {
+  font-size: 48px;
+}
+.subtitle {
+  font-size: 32px;
+}
+.m-w {
+  font-weight: 500;
+}
+.t-12 {
+  font-size: 12px;
+}
+.t-14 {
+  font-size: 14px;
+}
+.t-bg {
+  font-size: 40px;
+}
+.t-24 {
+  font-size: 24px;
+}
+.t-20 {
+  font-size: 20px;
+}
+.lh-24 {
+  line-height: 24px;
+}
+.yellow-text {
+  color: #eb9b01;
+}
+.blue-text {
+  color: #030659;
+}
+.grey-text {
+  color: #373737;
+}
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 32px;
+  }
+  .t-bg {
+    font-size: 28px;
+  }
+  .subtitle {
+    font-size: 24px;
+  }
+}
