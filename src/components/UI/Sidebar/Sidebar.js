@@ -33,7 +33,7 @@ const Sidebar = ({ side, setSide }) => {
       </span>
       <ul>
         <li className={classes.fill}>
-          <NavLink to="/client-jobs">
+          <NavLink to="/dashboard">
             <Dashboard />
             <span>Dashboard</span>
           </NavLink>
@@ -51,7 +51,7 @@ const Sidebar = ({ side, setSide }) => {
           </NavLink>
         </li>
         <li className={classes.fill}>
-          <NavLink to="/client-messages">
+          <NavLink to="/dashboard/jobs">
             <Jobs />
             <span>Jobs</span>
           </NavLink>

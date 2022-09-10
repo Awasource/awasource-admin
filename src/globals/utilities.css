@@ -50,6 +50,9 @@
   border-radius: 0px 15px 15px 0px;
   color: #fff !important;
 }
+.active svg path {
+  fill: #ffffff;
+}
 .active[type="stroke"] svg path {
   stroke: #ffffff;
 }

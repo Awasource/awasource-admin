@@ -1,0 +1,48 @@
+.btn {
+  justify-content: space-between;
+}
+.btn button:not(:last-of-type) {
+  display: block;
+  width: 150px;
+  border: none;
+  background: none;
+  border-radius: 5px;
+}
+.active {
+  background: #fee8bc !important;
+  color: #eb9b01;
+}
+.btn input {
+  background-color: transparent;
+  width: unset;
+}
+.table {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  padding: 2rem;
+}
+.header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 2fr;
+  padding: 5px 0 20px 0;
+}
+.grid {
+  border: 1px solid #cdcee5;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 2fr;
+  align-items: center;
+  padding: 20px 0;
+  margin: 20px 0;
+}
+.grid button {
+  background: none;
+  border: none;
+  margin: 0 5px;
+}
+
+.grid img {
+  width: 30px;
+  height: auto;
+}

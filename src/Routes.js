@@ -3,6 +3,7 @@ import AuthLayout from "./layout/AuthLayout/AuthLayout";
 import DashboardLayout from "./layout/Dashboard/dashboard";
 import AdminLogin from "./pages/Auth/Login/Login";
 import Verify from "./pages/Auth/Verify/Verify";
+import Jobs from "./pages/Dashboard/Jobs/Jobs";
 import Overview from "./pages/Dashboard/Overview/Overview";
 
 const Routes = () => {
@@ -25,6 +26,10 @@ const Routes = () => {
         {
           path: "/dashboard",
           element: <Overview />,
+        },
+        {
+          path: "/dashboard/jobs",
+          element: <Jobs />,
         },
       ],
     },
