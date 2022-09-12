@@ -60,6 +60,7 @@ const Jobs = () => {
       <div className={`flex  mt-sm ${classes.btn}`}>
         {BTN_ARRAY.map((item, i) => (
           <button
+          key={`btn-${i}`}
             onClick={() => setCurrentPage(item.text)}
             className={currentPage === item.text ? classes.active : ""}
           >
@@ -81,8 +82,8 @@ const Jobs = () => {
         </div>
         <hr />
         {JOBS_ARRAY.map(
-          ({ job, company, location, duration, time, price, candidates }) => (
-            <div className={classes.grid}>
+          ({ job, company, location, duration, time, price, candidates }, i) => (
+            <div className={classes.grid} key={`job-${i}`}>
               <div>
                 <h3>{job}</h3>
                 <p>{company}</p>

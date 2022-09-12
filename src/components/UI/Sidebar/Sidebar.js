@@ -1,4 +1,5 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
   Dashboard,
   UserManagement,
@@ -15,7 +16,9 @@ import {
 import classes from "./Sidebar.module.css";
 
 const Sidebar = ({ side, setSide }) => {
+  const [userDropdown, setUserDropdown] = useState(false);
   let navigate = useNavigate();
+  let { pathname } = useLocation();
   const logout = () => {
     localStorage.clear();
     navigate("/");
@@ -33,19 +36,46 @@ const Sidebar = ({ side, setSide }) => {
       </span>
       <ul>
         <li className={classes.fill}>
-          <NavLink to="/dashboard">
+          <NavLink to="/dashboard/overview">
             <Dashboard />
             <span>Dashboard</span>
           </NavLink>
         </li>
-        <li className={classes.fill}>
-          <NavLink to="/job-feed" type="fill">
+        <li
+          className={`${classes.users} ${classes.fill} ${
+            pathname.includes("users") ? classes.activeLink : ""
+          }`}
+        >
+          <div onClick={() => setUserDropdown(!userDropdown)}>
             <UserManagement />
-            <span>User Management</span>
-          </NavLink>
+            <p>User Management</p>
+            <span
+              className={userDropdown ? classes.up : classes.down}
+            >
+              <SideBarArrow />
+            </span>
+          </div>
+          {userDropdown && (
+            <div>
+              <NavLink
+                to="/dashboard/users/talents"
+                type="fill"
+                className={pathname.includes("talents") ? classes.talents : ""}
+              >
+                <span>Talents</span>
+              </NavLink>
+              <NavLink
+                to="/dashboard/users/clients"
+                type="fill"
+                className={pathname.includes("clients") ? classes.clients : ""}
+              >
+                <span>Clients</span>
+              </NavLink>
+            </div>
+          )}
         </li>
         <li className={classes.fill}>
-          <NavLink to="/personal-profile">
+          <NavLink to="/dashboard/admin-management">
             <AdminManagement />
             <span>Admin Management</span>
           </NavLink>

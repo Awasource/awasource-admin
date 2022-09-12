@@ -1,0 +1,80 @@
+.btn {
+    justify-content: space-between;
+  }
+  .btn input {
+    background-color: transparent;
+    width: unset;
+    margin-right: 20px;
+  }
+  .otherbutton button:last-of-type {
+    border-color: #fb1a1a;
+    color: #fb1a1a;
+    margin-left: 30px;
+  }
+  .otherbutton button:last-of-type:hover {
+    border-color: #fb1a1a;
+    background-color: #fb1a1a;
+    color: #fff;
+  }
+  .table {
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+    padding: 2rem;
+  }
+  .header {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 2fr 1.5fr 1fr 2fr;
+    padding: 5px 0 20px 0;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 2fr 1.5fr 1fr 2fr;
+    align-items: center;
+    margin: 45px 0;
+  }
+  .grid button {
+    background: none;
+    border: none;
+    margin: 0 5px;
+  }
+  
+  .grid img {
+    width: 30px;
+    height: auto;
+  }
+  .description {
+    background: #030659;
+    color: #fff;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    min-width: 130px;
+  }
+  .arrowdown {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 12px solid #030659;
+    display: inline-block;
+    position: absolute;
+    bottom: -12px;
+    right: 8px;
+  }
+  .hidden {
+    position: absolute;
+    top: -40px;
+    right: -5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  .edit:hover > div,
+  .delete:hover > div,
+  .archive:hover > div {
+    visibility: visible;
+    opacity: 1;
+  }
+  

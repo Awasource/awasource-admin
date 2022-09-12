@@ -1,5 +1,11 @@
+.main {
+  align-items: flex-start;
+  max-height: calc(100vh - 52px);
+}
 .main main {
   padding: 2rem;
   width: 100%;
   background: #f5f6fa;
+  max-height: 90vh;
+  overflow-y: auto;
 }

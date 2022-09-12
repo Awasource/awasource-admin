@@ -61,3 +61,55 @@ export const DASHBOARD_ACTIVIY_SUMMARY = [
     time: "1 day ago",
   },
 ];
+
+export const CLIENTS_ARRAY = [
+  {
+    name: "Henry Dimo",
+    email: "henrydimo@awasource.com",
+    position: "Product Designer",
+    lastUpdated: "Feb, 02, 2020",
+    image: "HD",
+  },
+  {
+    name: "Henry Dimo",
+    email: "henrydimo@awasource.com",
+    position: "Product Designer",
+    lastUpdated: "Feb, 02, 2020",
+    image: "HD",
+  },
+  {
+    name: "Henry Dimo",
+    email: "henrydimo@awasource.com",
+    position: "Product Designer",
+    lastUpdated: "Feb, 02, 2020",
+    image: "HD",
+  },
+  {
+    name: "Henry Dimo",
+    email: "henrydimo@awasource.com",
+    position: "Product Designer",
+    lastUpdated: "Feb, 02, 2020",
+    image: "HD",
+  },
+  {
+    name: "Henry Dimo",
+    email: "henrydimo@awasource.com",
+    position: "Product Designer",
+    lastUpdated: "Feb, 02, 2020",
+    image: "HD",
+  },
+  {
+    name: "Henry Dimo",
+    email: "henrydimo@awasource.com",
+    position: "Product Designer",
+    lastUpdated: "Feb, 02, 2020",
+    image: "HD",
+  },
+  {
+    name: "Henry Dimo",
+    email: "henrydimo@awasource.com",
+    position: "Product Designer",
+    lastUpdated: "Feb, 02, 2020",
+    image: "HD",
+  },
+];
