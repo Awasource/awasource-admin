@@ -1,0 +1,20 @@
+.main {
+  width: 100%;
+  min-height: 100vh;
+  background: url("../../assets/images/backgrounds/circleBg.png") 100% center,
+    linear-gradient(180deg, #090e89 -30.09%, #030659 100%);
+  position: relative;
+  text-align: center;
+  padding: 1rem 0 4rem 0;
+}
+
+.main button {
+  width: 40%;
+  margin: 20px auto;
+}
+.logo > svg {
+  max-width: 80%;
+  height: auto;
+}
+@media screen and (max-width: 468px) {
+}

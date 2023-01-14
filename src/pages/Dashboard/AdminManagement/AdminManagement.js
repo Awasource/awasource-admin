@@ -3,6 +3,7 @@ import classes from "./AdminManagement.module.css";
 import Edit from "../../../assets/images/icons/edit.svg";
 import Delete from "../../../assets/images/icons/delete.svg";
 import Archive from "../../../assets/images/icons/archive.svg";
+import Mail from "../../../assets/images/icons/mail.svg";
 
 const AdminManagement = () => {
   const ADMINS_ARRAY = [
@@ -54,8 +55,8 @@ const AdminManagement = () => {
       <h2>Admin Management</h2>
       <div className={`flex  mt-sm ${classes.btn}`}>
         <div className={classes.otherbutton}>
-            <Button type="white">Email</Button>
-            <Button type="white">Delete</Button>
+          <Button type="white">Email</Button>
+          <Button type="white">Delete</Button>
         </div>
         <div>
           <input placeholder="Search" />
@@ -114,6 +115,15 @@ const MAPPED_DATA = ({ name, email, lastUpdated, image }) => {
           <div className={classes.hidden}>
             <span className={`relative ${classes.description}`}>
               Archive Admin
+              <span className={classes.arrowdown}></span>
+            </span>
+          </div>
+        </button>
+        <button className={`relative ${classes.archive}`}>
+          <img src={Mail} alt="" />
+          <div className={classes.hidden}>
+            <span className={`relative ${classes.description}`}>
+              Email Admin
               <span className={classes.arrowdown}></span>
             </span>
           </div>

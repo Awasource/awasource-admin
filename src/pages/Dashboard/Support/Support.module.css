@@ -1,0 +1,38 @@
+.btn {
+  justify-content: space-between;
+}
+.btn input {
+  background-color: transparent;
+  width: unset;
+  margin-right: 20px;
+}
+.otherbutton button:last-of-type {
+  border-color: #fb1a1a;
+  color: #fb1a1a;
+  margin-left: 30px;
+}
+.otherbutton button:last-of-type:hover {
+  border-color: #fb1a1a;
+  background-color: #fb1a1a;
+  color: #fff;
+}
+.table {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  padding: 2rem;
+}
+.header {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 2fr 1.5fr 1fr;
+  padding: 5px 0 20px 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 2fr 1.5fr 1fr;
+  align-items: center;
+  margin: 45px 0;
+}
+.grid div {
+  text-align: left;
+}

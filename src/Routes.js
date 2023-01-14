@@ -1,13 +1,18 @@
 import { useRoutes } from "react-router";
 import AuthLayout from "./layout/AuthLayout/AuthLayout";
 import DashboardLayout from "./layout/Dashboard/dashboard";
+import WelcomeLayout from "./layout/Welcome/welcome";
 import AdminLogin from "./pages/Auth/Login/Login";
 import Verify from "./pages/Auth/Verify/Verify";
+import AddEmail from "./pages/Dashboard/Add-Email/AddEmail";
 import AdminManagement from "./pages/Dashboard/AdminManagement/AdminManagement";
 import Clients from "./pages/Dashboard/Clients/Clients";
+import Emails from "./pages/Dashboard/Emails/Emails";
 import Jobs from "./pages/Dashboard/Jobs/Jobs";
 import Overview from "./pages/Dashboard/Overview/Overview";
+import Support from "./pages/Dashboard/Support/Support";
 import Talents from "./pages/Dashboard/Talents/Talents";
+import Error404 from "./pages/Error/404";
 
 const Routes = () => {
   return useRoutes([
@@ -46,7 +51,27 @@ const Routes = () => {
           path: "/dashboard/users/clients",
           element: <Clients />,
         },
+        {
+          path: "/dashboard/emails",
+          element: <Emails />,
+        },
+        {
+          path: "/dashboard/add-email",
+          element: <AddEmail />,
+        },
+        {
+          path: "/dashboard/support",
+          element: <Support />,
+        },
       ],
+    },
+    {
+      path: "/*",
+      element: (
+        <WelcomeLayout>
+          <Error404 />,
+        </WelcomeLayout>
+      ),
     },
   ]);
 };

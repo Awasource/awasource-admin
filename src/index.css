@@ -14,7 +14,9 @@ body {
   margin: 0 auto;
   color: #020202;
 }
-input {
+input,
+select,
+textarea {
   width: 100%;
   border: 1px solid #cdcee5;
   border-radius: 7px;

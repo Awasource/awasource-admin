@@ -1,0 +1,42 @@
+.radio {
+  padding: 0px 25px;
+}
+.radio input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.check {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 2px solid #000000;
+  background-color: transparent;
+  border-radius: 50%;
+}
+.radio input:checked ~ .check {
+  border: 2px solid #f9a910;
+  background-color: transparent;
+}
+.check:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio input:checked ~ .check:after {
+  display: block;
+}
+
+.radio input:checked ~ .check:after {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f9a910;
+}

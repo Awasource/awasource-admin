@@ -1,51 +1,51 @@
 import Button from "../../../components/UI/Button/Button";
-import classes from "./Talents.module.css";
+import { ALL_EMAILS } from "../../../constants";
+import classes from "./Emails.module.css";
 import Edit from "../../../assets/images/icons/edit.svg";
 import Delete from "../../../assets/images/icons/delete.svg";
 import Archive from "../../../assets/images/icons/archive.svg";
-import Mail from "../../../assets/images/icons/mail.svg";
-import { CLIENTS_ARRAY } from "../../../constants";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
-const Talents = () => {
-  const [checkAll, setCheckAll] = useState(true);
-  const handleCheckAll = (e) => {
-    setCheckAll(e.target.checked);
-  };
+const Emails = () => {
+  const navigate = useNavigate();
   return (
     <div>
-      <h2>Talents</h2>
-      <div className={`flex  mt-sm ${classes.btn}`}>
-        <div className={classes.otherbutton}>
-          <Button type="white">Email</Button>
-          <Button type="white">Delete</Button>
-        </div>
-        <div>
-          <input placeholder="Search Talents" />
-          <Button type="yellow">Add Talents</Button>
-        </div>
-      </div>
+      <h2>Email Management</h2>
       <div className={`mt-md ${classes.table}`}>
+        <div className={`flex mb-md ${classes.btn}`}>
+          <div className={classes.otherbutton}>
+            <Button type="white">Activate</Button>
+            <Button type="white">Delete</Button>
+          </div>
+          <div>
+            <input placeholder="Search" />
+            <Button
+              type="yellow"
+              onClick={() => navigate("/dashboard/add-email")}
+            >
+              Add Email
+            </Button>
+          </div>
+        </div>
         <div className={classes.header}>
-          <input type="checkbox" checked={checkAll} onChange={handleCheckAll} />
-          <span>Full Name</span>
-          <span>Email</span>
-          <span>Last Updated</span>
-          <span>Image</span>
+          <input type="checkbox" />
+          <span>Name</span>
+          <span>Subject</span>
+          <span>Type</span>
+          <span>Status</span>
           <span>Actions</span>
         </div>
         <hr />
-        {CLIENTS_ARRAY.map((item, i) => (
-          <MAPPED_DATA key={`admin-${i}`} {...item} />
+        {ALL_EMAILS.map((item, i) => (
+          <MAPPED_DATA key={`admin-${i}`} item={item} />
         ))}
       </div>
     </div>
   );
 };
 
-export default Talents;
-
-const MAPPED_DATA = ({ name, position, email, lastUpdated, image }) => {
+const MAPPED_DATA = ({ item }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheck = (e) => {
@@ -55,18 +55,17 @@ const MAPPED_DATA = ({ name, position, email, lastUpdated, image }) => {
     <div className={classes.grid}>
       <input type="checkbox" checked={isChecked} onChange={handleCheck} />
       <div>
-        <p>{name}</p>
-        <small>{position}</small>
+        <p>{item.title}</p>
       </div>
-      <span>{email}</span>
-      <span>{lastUpdated}</span>
-      <span>{image}</span>
+      <p className={classes.subject}>{item.subject}</p>
+      <p>{item.type}</p>
+      <p>A</p>
       <div>
         <button className={`relative ${classes.edit}`}>
           <img src={Edit} alt="" />
           <div className={classes.hidden}>
             <span className={`relative ${classes.description}`}>
-              Edit Talent
+              Edit Email
               <span className={classes.arrowdown}></span>
             </span>
           </div>
@@ -75,7 +74,7 @@ const MAPPED_DATA = ({ name, position, email, lastUpdated, image }) => {
           <img src={Delete} alt="" />
           <div className={classes.hidden}>
             <span className={`relative ${classes.description}`}>
-              Delete Talent
+              Delete Email
               <span className={classes.arrowdown}></span>
             </span>
           </div>
@@ -84,16 +83,7 @@ const MAPPED_DATA = ({ name, position, email, lastUpdated, image }) => {
           <img src={Archive} alt="" />
           <div className={classes.hidden}>
             <span className={`relative ${classes.description}`}>
-              Archive Talent
-              <span className={classes.arrowdown}></span>
-            </span>
-          </div>
-        </button>
-        <button className={`relative ${classes.archive}`}>
-          <img src={Mail} alt="" />
-          <div className={classes.hidden}>
-            <span className={`relative ${classes.description}`}>
-              Email Talent
+              Archive Email
               <span className={classes.arrowdown}></span>
             </span>
           </div>
@@ -102,3 +92,5 @@ const MAPPED_DATA = ({ name, position, email, lastUpdated, image }) => {
     </div>
   );
 };
+
+export default Emails;

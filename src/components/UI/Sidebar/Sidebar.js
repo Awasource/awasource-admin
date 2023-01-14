@@ -49,9 +49,7 @@ const Sidebar = ({ side, setSide }) => {
           <div onClick={() => setUserDropdown(!userDropdown)}>
             <UserManagement />
             <p>User Management</p>
-            <span
-              className={userDropdown ? classes.up : classes.down}
-            >
+            <span className={userDropdown ? classes.up : classes.down}>
               <SideBarArrow />
             </span>
           </div>
@@ -105,13 +103,13 @@ const Sidebar = ({ side, setSide }) => {
           </NavLink>
         </li>
         <li className={classes.fill}>
-          <NavLink to="/#1">
+          <NavLink to="/dashboard/emails">
             <Emails />
             <span>Emails</span>
           </NavLink>
         </li>
         <li className={classes.fill}>
-          <NavLink to="/#1" type="stroke">
+          <NavLink to="/dashboard/support" type="fill">
             <Support />
             <span>Support</span>
           </NavLink>

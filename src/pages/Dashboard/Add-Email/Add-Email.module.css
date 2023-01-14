@@ -1,0 +1,43 @@
+.form {
+  margin-top: 24px;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(4, 9, 123, 0.05);
+  padding: 2rem;
+  border-radius: 8px;
+}
+.form label,
+.container {
+  display: block;
+  margin-bottom: 12px;
+}
+.form input,
+.form select,
+.form textarea {
+  margin-top: 8px;
+}
+.mutiple {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  gap: 60px;
+}
+.radios {
+  margin-top: 32px;
+}
+.radios div {
+  margin-top: 12px;
+  display: flex;
+}
+
+.radios label:first-of-type {
+  margin-right: 50px;
+}
+
+.btn {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn button {
+  margin-left: 40px;
+}
