@@ -53,17 +53,17 @@ const AdminManagement = () => {
   return (
     <div>
       <h2>Admin Management</h2>
-      <div className={`flex  mt-sm ${classes.btn}`}>
-        <div className={classes.otherbutton}>
-          <Button type="white">Email</Button>
-          <Button type="white">Delete</Button>
-        </div>
-        <div>
-          <input placeholder="Search" />
-          <Button type="yellow">Create Jobs</Button>
-        </div>
-      </div>
       <div className={`mt-md ${classes.table}`}>
+        <div className={`flex mb-md ${classes.btn}`}>
+          <div className={classes.otherbutton}>
+            <Button type="white">Delete</Button>
+          </div>
+          <div>
+            <Button type="yellow" isLink to="/dashboard/add-new-admin">
+              Add user groups
+            </Button>
+          </div>
+        </div>
         <div className={classes.header}>
           <input type="checkbox" />
           <span>Full Name</span>

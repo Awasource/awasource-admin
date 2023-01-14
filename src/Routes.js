@@ -5,6 +5,7 @@ import WelcomeLayout from "./layout/Welcome/welcome";
 import AdminLogin from "./pages/Auth/Login/Login";
 import Verify from "./pages/Auth/Verify/Verify";
 import AddEmail from "./pages/Dashboard/Add-Email/AddEmail";
+import AddNewAdmin from "./pages/Dashboard/Add-New-Admin";
 import AdminManagement from "./pages/Dashboard/AdminManagement/AdminManagement";
 import Clients from "./pages/Dashboard/Clients/Clients";
 import Emails from "./pages/Dashboard/Emails/Emails";
@@ -42,6 +43,10 @@ const Routes = () => {
         {
           path: "/dashboard/admin-management",
           element: <AdminManagement />,
+        },
+        {
+          path: "/dashboard/add-new-admin",
+          element: <AddNewAdmin />,
         },
         {
           path: "/dashboard/users/talents",
