@@ -4,6 +4,7 @@ import Edit from "../../../assets/images/icons/edit.svg";
 import Delete from "../../../assets/images/icons/delete.svg";
 import Archive from "../../../assets/images/icons/archive.svg";
 import Mail from "../../../assets/images/icons/mail.svg";
+import { useEffect } from "react";
 
 const AdminManagement = () => {
   const ADMINS_ARRAY = [
@@ -50,6 +51,11 @@ const AdminManagement = () => {
       image: "HD",
     },
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div>
       <h2>Admin Management</h2>

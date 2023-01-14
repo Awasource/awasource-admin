@@ -4,6 +4,7 @@ import Edit from "../../../assets/images/icons/edit.svg";
 import Delete from "../../../assets/images/icons/delete.svg";
 import Archive from "../../../assets/images/icons/archive.svg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Jobs = () => {
   const BTN_ARRAY = [
@@ -60,7 +61,7 @@ const Jobs = () => {
       <div className={`flex  mt-sm ${classes.btn}`}>
         {BTN_ARRAY.map((item, i) => (
           <button
-          key={`btn-${i}`}
+            key={`btn-${i}`}
             onClick={() => setCurrentPage(item.text)}
             className={currentPage === item.text ? classes.active : ""}
           >
@@ -82,8 +83,15 @@ const Jobs = () => {
         </div>
         <hr />
         {JOBS_ARRAY.map(
-          ({ job, company, location, duration, time, price, candidates }, i) => (
-            <div className={classes.grid} key={`job-${i}`}>
+          (
+            { job, company, location, duration, time, price, candidates },
+            i
+          ) => (
+            <Link
+              className={classes.grid}
+              key={`job-${i}`}
+              to="/dashboard/jobs/12334"
+            >
               <div>
                 <h3>{job}</h3>
                 <p>{company}</p>
@@ -104,7 +112,7 @@ const Jobs = () => {
                   <img src={Archive} alt="" />
                 </button>
               </div>
-            </div>
+            </Link>
           )
         )}
       </div>

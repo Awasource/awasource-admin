@@ -1,0 +1,37 @@
+.parent {
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.13);
+  border-radius: 8px;
+  padding: 2rem;
+}
+.parent h3 {
+  font-size: 22px;
+}
+.between {
+  justify-content: space-between;
+}
+.info {
+  align-items: center;
+}
+.picture {
+  margin-right: 2rem;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #f7f8fb;
+  font-size: 72px;
+  color: #030659;
+}
+.right {
+  text-align: right;
+}
+.links img {
+  width: 24px;
+  height: 24px;
+  margin: 0 13px;
+}
+
+.objective p {
+  width: 70%;
+}
+

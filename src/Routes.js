@@ -9,6 +9,7 @@ import AddNewAdmin from "./pages/Dashboard/Add-New-Admin";
 import AdminManagement from "./pages/Dashboard/AdminManagement/AdminManagement";
 import Clients from "./pages/Dashboard/Clients/Clients";
 import Emails from "./pages/Dashboard/Emails/Emails";
+import JobDetails from "./pages/Dashboard/Job-Details";
 import Jobs from "./pages/Dashboard/Jobs/Jobs";
 import Overview from "./pages/Dashboard/Overview/Overview";
 import Support from "./pages/Dashboard/Support/Support";
@@ -39,6 +40,10 @@ const Routes = () => {
         {
           path: "/dashboard/jobs",
           element: <Jobs />,
+        },
+        {
+          path: "/dashboard/jobs/:id",
+          element: <JobDetails />,
         },
         {
           path: "/dashboard/admin-management",
