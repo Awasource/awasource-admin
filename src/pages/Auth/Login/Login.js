@@ -18,7 +18,7 @@ const AdminLogin = () => {
     e.preventDefault();
     console.log(payload);
     try {
-      navigate("/dashboard/overview");
+      navigate("/2fa");
       const res = await login(payload);
       console.log(res);
     } catch (error) {
@@ -54,7 +54,9 @@ const AdminLogin = () => {
         <Link to="/forgot-password" className={`mt-sm ${classes.forgot}`}>
           Forgot Password?
         </Link>
-        <Button type="yellow">Sign In</Button>
+        <div className="mt-md">
+          <Button type="yellow">Sign In</Button>
+        </div>
       </form>
     </section>
   );

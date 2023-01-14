@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import Button from "../../../components/UI/Button/Button";
 import { VERIFY_OTP_INPUTS } from "../../../constants";
 import classes from "./Verify.module.css";
 
 const Verify = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     field1: "",
     field2: "",
@@ -21,6 +23,10 @@ const Verify = () => {
         nodeList[num - 1].focus();
       }
     }
+  };
+
+  const handleVerify = () => {
+    navigate("/dashboard/overview");
   };
 
   return (
@@ -47,7 +53,9 @@ const Verify = () => {
       </div>
       <div className={`flex mb-md ${classes.btn}`}>
         <Button type="white">Cancel</Button>
-        <Button type="yellow">Verify</Button>
+        <Button type="yellow" onClick={handleVerify}>
+          Verify
+        </Button>
       </div>
     </section>
   );
