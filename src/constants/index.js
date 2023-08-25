@@ -3,6 +3,8 @@ import DashboardIcon2 from "../assets/images/icons/clients.svg";
 import DashboardIcon3 from "../assets/images/icons/jobs.svg";
 import DashboardIcon4 from "../assets/images/icons/subscriptions.svg";
 
+export const AWASOURCE_STORE_KEY = 'awasource-';
+
 export const Logo = ({ color }) => (
   <svg
     width="308"
@@ -71,25 +73,25 @@ export const DASHBOARD_CARDS = [
   {
     name: "Talents",
     image: DashboardIcon1,
-    count: "650,000",
+    count: "0",
     color: "blue",
   },
   {
     name: "Clients",
     image: DashboardIcon2,
-    count: "350,000",
+    count: "0",
     color: "grey",
   },
   {
     name: "Jobs",
     image: DashboardIcon3,
-    count: "150,000",
+    count: "0",
     color: "white",
   },
   {
     name: "Subscriptions",
     image: DashboardIcon4,
-    count: "100,000",
+    count: "0",
     color: "yellow",
   },
 ];

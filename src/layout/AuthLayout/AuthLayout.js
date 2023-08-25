@@ -1,9 +1,29 @@
 import classes from "./AuthLayout.module.css";
-import { Outlet } from "react-router";
+import { Outlet, useLocation, useNavigate } from "react-router";
 import SmallLogo from "../../assets/images/brand/logo.png";
 import { Logo } from "../../constants/svgs";
+import { useDispatch, useSelector } from "../../redux/store";
+import { useEffect } from "react";
+import { logout } from "../../redux/actions/authActions";
 
 const AuthLayout = () => {
+  const { auth } = useSelector(store => store);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const loggedIn = new URLSearchParams(location.search).get('logged-in');
+    if (auth.isAuthenticated) {
+      if (loggedIn === 'false') {
+        dispatch(logout());
+        navigate("/");
+      }
+      navigate("/dashboard/overview");
+    }
+  }, []);
+
   return (
     <main className={classes.main}>
       <div className={`mt-md mb-md ${classes.logo}`}>

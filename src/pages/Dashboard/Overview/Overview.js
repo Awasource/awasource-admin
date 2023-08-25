@@ -1,18 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { DASHBOARD_ACTIVIY_SUMMARY, DASHBOARD_CARDS } from "../../../constants";
 import classes from "./Overview.module.css";
+import { useDispatch, useSelector } from "../../../redux/store";
+import PageLoading from "../../../components/UI/PageLoading/PageLoading";
+import { getMetrics } from "../../../redux/actions/dashboardActions";
 
 const Overview = () => {
+  const { dashboard } = useSelector(store => store);
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getMetrics());
+  }, [])
+
+  if (dashboard.isLoading) {
+    return <PageLoading />
+  }
+
   return (
     <div>
       <h2 className="mb-md">Dashboard</h2>
       <div className={classes.grid}>
         {DASHBOARD_CARDS.map((item, i) => (
-          <SummaryCard key={`summary-${i}`} {...item} />
+          <SummaryCard key={`summary-${i}`} {...item} count={dashboard?.metrics?.[item.name.toLowerCase()] ?? 0} />
         ))}
       </div>
-      <Noitifications />
+      <Notifications />
     </div>
   );
 };
@@ -32,7 +47,7 @@ const SummaryCard = ({ name, image, count, color }) => (
   </div>
 );
 
-const Noitifications = () => {
+const Notifications = () => {
   const [summaryType, setSummaryType] = useState("activity");
   return (
     <div className={`mt-md ${classes.notification}`}>

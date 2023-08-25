@@ -3,6 +3,9 @@ import { useNavigate } from "react-router";
 import Button from "../../../components/UI/Button/Button";
 import { VERIFY_OTP_INPUTS } from "../../../constants";
 import classes from "./Verify.module.css";
+import { errorHandler } from "../../../utils/errorHandler";
+import { verify } from "../../../redux/actions/authActions";
+import { useDispatch } from "../../../redux/store";
 
 const Verify = () => {
   const navigate = useNavigate();
@@ -25,8 +28,18 @@ const Verify = () => {
     }
   };
 
+  const dispatch = useDispatch()
+
   const handleVerify = () => {
-    navigate("/dashboard/overview");
+    try {
+      dispatch(verify({ otp: Object.values(data).join("") }, () => navigate("/dashboard/overview")));
+    } catch (error) {
+      errorHandler(error, "Authentication failed!");
+    }
+  };
+
+  const handleCancel = () => {
+    navigate("/");
   };
 
   return (
@@ -52,7 +65,7 @@ const Verify = () => {
         ))}
       </div>
       <div className={`flex mb-md ${classes.btn}`}>
-        <Button type="white">Cancel</Button>
+        <Button type="white" onClick={handleCancel}>Cancel</Button>
         <Button type="yellow" onClick={handleVerify}>
           Verify
         </Button>

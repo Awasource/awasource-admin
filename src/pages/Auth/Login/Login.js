@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../../../apis";
 import Button from "../../../components/UI/Button/Button";
-import { errorHandler } from "../../../utils/errorHandler";
 import classes from "./Login.module.css";
+import { login } from "../../../redux/actions/authActions";
+import { useDispatch } from "../../../redux/store";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
@@ -11,20 +11,18 @@ const AdminLogin = () => {
     email: "",
     password: "",
   });
+
+  const dispatch = useDispatch()
+
   const handleChange = (e) =>
     setPayload({ ...payload, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(payload);
-    try {
-      navigate("/2fa");
-      const res = await login(payload);
-      console.log(res);
-    } catch (error) {
-      errorHandler(error, "Authentication failed!");
-    }
+
+    dispatch(login(payload, () => navigate("/2fa")));
   };
+
   return (
     <section className={classes.login}>
       <h2 className="mt-sm mb-sm">Login</h2>
