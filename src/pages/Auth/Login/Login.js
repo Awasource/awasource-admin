@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../../../components/UI/Button/Button";
 import classes from "./Login.module.css";
-import { login } from "../../../redux/actions/authActions";
-import { useDispatch } from "../../../redux/store";
+import { endAuthLoading, login } from "../../../redux/actions/authActions";
+import { useDispatch, useSelector } from "../../../redux/store";
 
 const AdminLogin = () => {
+  const { isLoading, isAuthenticated } = useSelector(store => store.auth);
+  console.log({isLoading})
   const navigate = useNavigate();
   const [payload, setPayload] = useState({
     email: "",
@@ -22,6 +24,12 @@ const AdminLogin = () => {
 
     dispatch(login(payload, () => navigate("/2fa")));
   };
+
+  useEffect(()=>{
+    if(!isAuthenticated && isLoading) {
+      dispatch(endAuthLoading());
+    }
+  }, []);
 
   return (
     <section className={classes.login}>
@@ -53,7 +61,7 @@ const AdminLogin = () => {
           Forgot Password?
         </Link>
         <div className="mt-md">
-          <Button type="yellow">Sign In</Button>
+          <Button type="yellow" disabled={isLoading}>{isLoading ? 'Submitting...' : 'Sign In'}</Button>
         </div>
       </form>
     </section>

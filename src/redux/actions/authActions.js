@@ -50,3 +50,9 @@ export function logout() {
     }
   };
 }
+
+export function endAuthLoading() {
+  return () => {
+    dispatch(slice.actions.endLoading());
+  };
+}

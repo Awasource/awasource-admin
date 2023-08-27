@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Button from "../../../components/UI/Button/Button";
 import { VERIFY_OTP_INPUTS } from "../../../constants";
 import classes from "./Verify.module.css";
 import { errorHandler } from "../../../utils/errorHandler";
-import { verify } from "../../../redux/actions/authActions";
-import { useDispatch } from "../../../redux/store";
+import { endAuthLoading, verify } from "../../../redux/actions/authActions";
+import { useDispatch, useSelector } from "../../../redux/store";
 
 const Verify = () => {
+  const { isLoading, isAuthenticated } = useSelector(store => store.auth);
   const navigate = useNavigate();
   const [data, setData] = useState({
     field1: "",
@@ -42,6 +43,12 @@ const Verify = () => {
     navigate("/");
   };
 
+  useEffect(()=>{
+    if(!isAuthenticated && isLoading) {
+      dispatch(endAuthLoading());
+    }
+  }, []);
+
   return (
     <section>
       <h2 className="mt-sm mb-sm">Two-factor Authentication</h2>
@@ -66,8 +73,8 @@ const Verify = () => {
       </div>
       <div className={`flex mb-md ${classes.btn}`}>
         <Button type="white" onClick={handleCancel}>Cancel</Button>
-        <Button type="yellow" onClick={handleVerify}>
-          Verify
+        <Button type="yellow" onClick={handleVerify} disabled={isLoading}>
+          {isLoading ? 'Submitting...' : 'Verify'}
         </Button>
       </div>
     </section>

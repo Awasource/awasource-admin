@@ -20,8 +20,8 @@ const Sidebar = ({ side, setSide }) => {
   let navigate = useNavigate();
   let { pathname } = useLocation();
   const logout = () => {
-    localStorage.clear();
     navigate("/");
+    localStorage.clear();
     window.location.reload();
   };
   return (
