@@ -1,0 +1,143 @@
+import Button from "../../../../components/UI/Button/Button";
+import classes from "./UserGroupManagement.module.css";
+import Edit from "../../../../assets/images/icons/edit.svg";
+import Delete from "../../../../assets/images/icons/delete.svg";
+import Archive from "../../../../assets/images/icons/archive.svg";
+import Mail from "../../../../assets/images/icons/mail.svg";
+import { useEffect } from "react";
+
+const UserGroupManagement = () =>
+{
+  const ADMINS_ARRAY = [
+    {
+      name: "Henry Dimo",
+      email: "henrydimo@awasource.com",
+      lastUpdated: "Feb, 02, 2020",
+      image: "HD",
+    },
+    {
+      name: "Henry Dimo",
+      email: "henrydimo@awasource.com",
+      lastUpdated: "Feb, 02, 2020",
+      image: "HD",
+    },
+    {
+      name: "Henry Dimo",
+      email: "henrydimo@awasource.com",
+      lastUpdated: "Feb, 02, 2020",
+      image: "HD",
+    },
+    {
+      name: "Henry Dimo",
+      email: "henrydimo@awasource.com",
+      lastUpdated: "Feb, 02, 2020",
+      image: "HD",
+    },
+    {
+      name: "Henry Dimo",
+      email: "henrydimo@awasource.com",
+      lastUpdated: "Feb, 02, 2020",
+      image: "HD",
+    },
+    {
+      name: "Henry Dimo",
+      email: "henrydimo@awasource.com",
+      lastUpdated: "Feb, 02, 2020",
+      image: "HD",
+    },
+    {
+      name: "Henry Dimo",
+      email: "henrydimo@awasource.com",
+      lastUpdated: "Feb, 02, 2020",
+      image: "HD",
+    },
+  ];
+
+  useEffect(() =>
+  {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div>
+      <h2>Admin Management</h2>
+      <div className={`mt-md ${classes.table}`}>
+        <div className={`flex mb-md ${classes.btn}`}>
+          <div className={classes.otherbutton}>
+            <Button type="white">Delete</Button>
+          </div>
+          <div>
+            <Button type="yellow" isLink to="/dashboard/admin/user-group/add">
+              Add user groups
+            </Button>
+          </div>
+        </div>
+        <div className={classes.header}>
+          <input type="checkbox" />
+          <span>Full Name</span>
+          <span>Email</span>
+          <span>Last Updated</span>
+          <span>Image</span>
+          <span>Actions</span>
+        </div>
+        <hr />
+        {ADMINS_ARRAY.map((item, i) => (
+          <MAPPED_DATA key={`admin-${i}`} {...item} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default UserGroupManagement;
+
+const MAPPED_DATA = ({ name, email, lastUpdated, image }) =>
+{
+  return (
+    <div className={classes.grid}>
+      <input type="checkbox" />
+      <span>{name}</span>
+      <span>{email}</span>
+      <span>{lastUpdated}</span>
+      <span>{image}</span>
+      <div>
+        <button className={`relative ${classes.edit}`}>
+          <img src={Edit} alt="" />
+          <div className={classes.hidden}>
+            <span className={`relative ${classes.description}`}>
+              Edit Admin
+              <span className={classes.arrowdown}></span>
+            </span>
+          </div>
+        </button>
+        <button className={`relative ${classes.delete}`}>
+          <img src={Delete} alt="" />
+          <div className={classes.hidden}>
+            <span className={`relative ${classes.description}`}>
+              Delete Admin
+              <span className={classes.arrowdown}></span>
+            </span>
+          </div>
+        </button>
+        <button className={`relative ${classes.archive}`}>
+          <img src={Archive} alt="" />
+          <div className={classes.hidden}>
+            <span className={`relative ${classes.description}`}>
+              Archive Admin
+              <span className={classes.arrowdown}></span>
+            </span>
+          </div>
+        </button>
+        <button className={`relative ${classes.archive}`}>
+          <img src={Mail} alt="" />
+          <div className={classes.hidden}>
+            <span className={`relative ${classes.description}`}>
+              Email Admin
+              <span className={classes.arrowdown}></span>
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  );
+};

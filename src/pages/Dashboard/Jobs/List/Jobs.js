@@ -1,12 +1,13 @@
-import Button from "../../../components/UI/Button/Button";
+import Button from "../../../../components/UI/Button/Button";
 import classes from "./Jobs.module.css";
-import Edit from "../../../assets/images/icons/edit.svg";
-import Delete from "../../../assets/images/icons/delete.svg";
-import Archive from "../../../assets/images/icons/archive.svg";
+import Edit from "../../../../assets/images/icons/edit.svg";
+import Delete from "../../../../assets/images/icons/delete.svg";
+import Archive from "../../../../assets/images/icons/archive.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Jobs = () => {
+const Jobs = () =>
+{
   const BTN_ARRAY = [
     {
       text: "Active",

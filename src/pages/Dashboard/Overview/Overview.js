@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { DASHBOARD_ACTIVIY_SUMMARY, DASHBOARD_CARDS } from "../../../constants";
+import { DASHBOARD_CARDS } from "../../../constants";
 import classes from "./Overview.module.css";
 import { useDispatch, useSelector } from "../../../redux/store";
 import PageLoading from "../../../components/UI/PageLoading/PageLoading";
 import { getMetrics } from "../../../redux/actions/dashboardActions";
+import { DASHBOARD_ACTIVITY_SUMMARY, DASHBOARD_JOB_SUMMARY } from "../../../__mock__";
 
-const Overview = () => {
+const Overview = () =>
+{
   const { dashboard } = useSelector(store => store);
 
   const dispatch = useDispatch()
 
-  useEffect(() => {
+  useEffect(() =>
+  {
     dispatch(getMetrics());
   }, [])
 
-  if (dashboard.isLoading) {
+  if (dashboard.isLoading)
+  {
     return <PageLoading />
   }
 
@@ -47,8 +51,14 @@ const SummaryCard = ({ name, image, count, color }) => (
   </div>
 );
 
-const Notifications = () => {
+const Notifications = () =>
+{
   const [summaryType, setSummaryType] = useState("activity");
+  const summaryList = {
+    activity: DASHBOARD_ACTIVITY_SUMMARY,
+    job: DASHBOARD_JOB_SUMMARY,
+  }
+
   return (
     <div className={`mt-md ${classes.notification}`}>
       <div className={`mb-sm ${classes.btn}`}>
@@ -67,14 +77,14 @@ const Notifications = () => {
       </div>
       <hr />
       <div className="mt-md">
-        {DASHBOARD_ACTIVIY_SUMMARY.map((item, i) => (
+        {summaryList[summaryType].map((item, i) => (
           <div key={`activity-${i}`} className={`flex ${classes.activity}`}>
             <p>{item.message}</p>
             <p>{item.time}</p>
           </div>
         ))}
       </div>
-      <Link to="/" className={classes.link}>See all</Link>
+      <Link to="/dashboard/jobs" className={classes.link}>See all</Link>
     </div>
   );
 };

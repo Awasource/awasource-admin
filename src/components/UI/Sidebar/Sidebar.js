@@ -17,6 +17,7 @@ import classes from "./Sidebar.module.css";
 
 const Sidebar = ({ side, setSide }) => {
   const [userDropdown, setUserDropdown] = useState(false);
+  const [adminDropdown, setAdminDropdown] = useState(false);
   let navigate = useNavigate();
   let { pathname } = useLocation();
   const logout = () => {
@@ -24,12 +25,12 @@ const Sidebar = ({ side, setSide }) => {
     localStorage.clear();
     window.location.reload();
   };
+
   return (
     <div className={`${classes.main} ${side ? classes.wide : ""}`}>
       <span
-        className={`center-flex ${classes.sidearrow} ${
-          side ? classes.rotate : ""
-        }`}
+        className={`center-flex ${classes.sidearrow} ${side ? classes.rotate : ""
+          }`}
         onClick={() => setSide(!side)}
       >
         <SideBarArrow />
@@ -42,9 +43,8 @@ const Sidebar = ({ side, setSide }) => {
           </NavLink>
         </li>
         <li
-          className={`${classes.users} ${classes.fill} ${
-            pathname.includes("users") ? classes.activeLink : ""
-          }`}
+          className={`${classes.users} ${classes.fill} ${pathname.includes("users") ? classes.activeLink : ""
+            }`}
         >
           <div onClick={() => setUserDropdown(!userDropdown)}>
             <UserManagement />
@@ -72,11 +72,33 @@ const Sidebar = ({ side, setSide }) => {
             </div>
           )}
         </li>
-        <li className={classes.fill}>
-          <NavLink to="/dashboard/admin-management">
+        <li className={`${classes.users} ${classes.fill} ${pathname.includes("admin") ? classes.activeLink : ""
+          }`}>
+          <div onClick={() => setAdminDropdown(!adminDropdown)}>
             <AdminManagement />
-            <span>Admin Management</span>
-          </NavLink>
+            <p>Admin Management</p>
+            <span className={adminDropdown ? classes.up : classes.down}>
+              <SideBarArrow />
+            </span>
+          </div>
+          {adminDropdown && (
+            <div>
+              <NavLink
+                to="/dashboard/admin/admin-list"
+                type="fill"
+                className={pathname.includes("admin-list") ? classes.talents : ""}
+              >
+                <span>List Admins</span>
+              </NavLink>
+              <NavLink
+                to="/dashboard/admin/user-group"
+                type="fill"
+                className={pathname.includes("user-group") ? classes.clients : ""}
+              >
+                <span>User Groups</span>
+              </NavLink>
+            </div>
+          )}
         </li>
         <li className={classes.fill}>
           <NavLink to="/dashboard/jobs">

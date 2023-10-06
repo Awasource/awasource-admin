@@ -12,6 +12,7 @@ export function login(payload, successCallback) {
         dispatch(slice.actions.loginSuccess(data));
         successCallback();
       } else {
+        endAuthLoading();
         errorHandler(status, "Authentication failed!");
       }
     } catch (err) {
@@ -30,6 +31,7 @@ export function verify(payload, successCallback) {
         dispatch(slice.actions.verifySuccess(data));
         successCallback();
       } else {
+        endAuthLoading();
         errorHandler(status, "Authentication failed!");
       }
     } catch (err) {

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { baseUrl } from '.';
 import { AWASOURCE_STORE_KEY } from '../constants';
+import { logoutHandler } from '../utils/logoutHandler';
 
 const httpService = axios.create({ baseURL: baseUrl });
 
@@ -22,12 +23,7 @@ httpService.interceptors.response.use(
   (error) => {
     if (error?.response?.status === 401) {
       //TODO: redirect on logout
-      const auth = localStorage.getItem(`${AWASOURCE_STORE_KEY}auth`);
-      const oldAuth = JSON.parse(auth);
-      if (auth) {
-        localStorage.setItem(`${AWASOURCE_STORE_KEY}auth`, JSON.stringify({ ...oldAuth, isAuthenticated: false }))
-      }
-      // window.location.replace("/?logged-in=false");
+      logoutHandler();
     }
 
     throw error?.response?.data;

@@ -1,12 +1,13 @@
-import Button from "../../../components/UI/Button/Button";
+import Button from "../../../../components/UI/Button/Button";
 import classes from "./AdminManagement.module.css";
-import Edit from "../../../assets/images/icons/edit.svg";
-import Delete from "../../../assets/images/icons/delete.svg";
-import Archive from "../../../assets/images/icons/archive.svg";
-import Mail from "../../../assets/images/icons/mail.svg";
+import Edit from "../../../../assets/images/icons/edit.svg";
+import Delete from "../../../../assets/images/icons/delete.svg";
+import Archive from "../../../../assets/images/icons/archive.svg";
+import Mail from "../../../../assets/images/icons/mail.svg";
 import { useEffect } from "react";
 
-const AdminManagement = () => {
+const AdminManagement = () =>
+{
   const ADMINS_ARRAY = [
     {
       name: "Henry Dimo",
@@ -52,10 +53,11 @@ const AdminManagement = () => {
     },
   ];
 
-  useEffect(() => {
+  useEffect(() =>
+  {
     window.scrollTo(0, 0);
   }, []);
-  
+
   return (
     <div>
       <h2>Admin Management</h2>
@@ -65,8 +67,8 @@ const AdminManagement = () => {
             <Button type="white">Delete</Button>
           </div>
           <div>
-            <Button type="yellow" isLink to="/dashboard/add-new-admin">
-              Add user groups
+            <Button type="yellow" isLink to="/dashboard/admin/admin-list/add">
+              Add Admin
             </Button>
           </div>
         </div>
@@ -89,7 +91,8 @@ const AdminManagement = () => {
 
 export default AdminManagement;
 
-const MAPPED_DATA = ({ name, email, lastUpdated, image }) => {
+const MAPPED_DATA = ({ name, email, lastUpdated, image }) =>
+{
   return (
     <div className={classes.grid}>
       <input type="checkbox" />

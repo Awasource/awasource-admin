@@ -5,18 +5,21 @@ import WelcomeLayout from "./layout/Welcome/welcome";
 import AdminLogin from "./pages/Auth/Login/Login";
 import Verify from "./pages/Auth/Verify/Verify";
 import AddEmail from "./pages/Dashboard/Add-Email/AddEmail";
-import AddNewAdmin from "./pages/Dashboard/Add-New-Admin";
-import AdminManagement from "./pages/Dashboard/AdminManagement/AdminManagement";
-import Clients from "./pages/Dashboard/Clients/Clients";
+import AddNewAdmin from "./pages/Dashboard/AdminManagement/Add-New-Admin";
+import AdminManagement from "./pages/Dashboard/AdminManagement/List/AdminManagement";
+import Clients from "./pages/Dashboard/UserManagement/Clients/Clients";
 import Emails from "./pages/Dashboard/Emails/Emails";
-import JobDetails from "./pages/Dashboard/Job-Details";
-import Jobs from "./pages/Dashboard/Jobs/Jobs";
+import JobDetails from "./pages/Dashboard/Jobs/Job-Details";
+import Jobs from "./pages/Dashboard/Jobs/List/Jobs";
 import Overview from "./pages/Dashboard/Overview/Overview";
 import Support from "./pages/Dashboard/Support/Support";
-import Talents from "./pages/Dashboard/Talents/Talents";
+import Talents from "./pages/Dashboard/UserManagement/Talents/Talents";
 import Error404 from "./pages/Error/404";
+import UserGroupManagement from "./pages/Dashboard/UserGroupManagement/List/UserGroupManagement";
+import AddNewGroup from "./pages/Dashboard/UserGroupManagement/Add-New-Group";
 
-const Routes = () => {
+const Routes = () =>
+{
   return useRoutes([
     {
       path: "/",
@@ -46,12 +49,20 @@ const Routes = () => {
           element: <JobDetails />,
         },
         {
-          path: "/dashboard/admin-management",
+          path: "/dashboard/admin/admin-list",
           element: <AdminManagement />,
         },
         {
-          path: "/dashboard/add-new-admin",
+          path: "/dashboard/admin/admin-list/add",
           element: <AddNewAdmin />,
+        },
+        {
+          path: "/dashboard/admin/user-group",
+          element: <UserGroupManagement />,
+        },
+        {
+          path: "/dashboard/admin/user-group/add",
+          element: <AddNewGroup />,
         },
         {
           path: "/dashboard/users/talents",

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Button from "../../../components/UI/Button/Button";
-import RadioInput from "../../../components/UI/RadioInput/input";
+import Button from "../../../../components/UI/Button/Button";
+import RadioInput from "../../../../components/UI/RadioInput/input";
 import classes from "./index.module.css";
 
 const OPTIONS = [
@@ -58,7 +58,7 @@ const OPTIONS = [
     option: ["Edit", "Delete", "View"],
   },
 ];
-const AddNewAdmin = () => {
+const AddNewGroup = () => {
   const [payload, setPayload] = useState({});
   return (
     <div>
@@ -119,4 +119,4 @@ const AddNewAdmin = () => {
   );
 };
 
-export default AddNewAdmin;
+export default AddNewGroup;
