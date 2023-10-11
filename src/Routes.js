@@ -5,18 +5,20 @@ import WelcomeLayout from "./layout/Welcome/welcome";
 import AdminLogin from "./pages/Auth/Login/Login";
 import Verify from "./pages/Auth/Verify/Verify";
 import AddEmail from "./pages/Dashboard/Add-Email/AddEmail";
-import AddNewAdmin from "./pages/Dashboard/AdminManagement/Add-New-Admin";
+import AddNewAdmin from "./pages/Dashboard/AdminManagement/Add";
 import AdminManagement from "./pages/Dashboard/AdminManagement/List/AdminManagement";
-import Clients from "./pages/Dashboard/UserManagement/Clients/Clients";
+import Clients from "./pages/Dashboard/UserManagement/Clients/List/Clients";
 import Emails from "./pages/Dashboard/Emails/Emails";
 import JobDetails from "./pages/Dashboard/Jobs/Job-Details";
 import Jobs from "./pages/Dashboard/Jobs/List/Jobs";
 import Overview from "./pages/Dashboard/Overview/Overview";
 import Support from "./pages/Dashboard/Support/Support";
-import Talents from "./pages/Dashboard/UserManagement/Talents/Talents";
+import Talents from "./pages/Dashboard/UserManagement/Talents/List/Talents";
 import Error404 from "./pages/Error/404";
 import UserGroupManagement from "./pages/Dashboard/UserGroupManagement/List/UserGroupManagement";
-import AddNewGroup from "./pages/Dashboard/UserGroupManagement/Add-New-Group";
+import AddNewGroup from "./pages/Dashboard/UserGroupManagement/Add";
+import AddNewClient from "./pages/Dashboard/UserManagement/Clients/Add";
+import AddNewTalent from "./pages/Dashboard/UserManagement/Talents/Add";
 
 const Routes = () =>
 {
@@ -69,8 +71,16 @@ const Routes = () =>
           element: <Talents />,
         },
         {
+          path: "/dashboard/users/talents/add",
+          element: <AddNewTalent />,
+        },
+        {
           path: "/dashboard/users/clients",
           element: <Clients />,
+        },
+        {
+          path: "/dashboard/users/clients/add",
+          element: <AddNewClient />,
         },
         {
           path: "/dashboard/emails",

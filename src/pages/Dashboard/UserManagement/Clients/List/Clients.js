@@ -1,13 +1,13 @@
-import Button from "../../../../components/UI/Button/Button";
+import Button from "../../../../../components/UI/Button/Button";
 import classes from "./Clients.module.css";
-import Edit from "../../../../assets/images/icons/edit.svg";
-import Delete from "../../../../assets/images/icons/delete.svg";
-import Archive from "../../../../assets/images/icons/archive.svg";
-import Mail from "../../../../assets/images/icons/mail.svg";
-import { useDispatch, useSelector } from "../../../../redux/store";
+import Edit from "../../../../../assets/images/icons/edit.svg";
+import Delete from "../../../../../assets/images/icons/delete.svg";
+import Archive from "../../../../../assets/images/icons/archive.svg";
+import Mail from "../../../../../assets/images/icons/mail.svg";
+import { useDispatch, useSelector } from "../../../../../redux/store";
 import { useEffect } from "react";
-import { getClients } from "../../../../redux/actions/clientActions";
-import PageLoading from "../../../../components/UI/PageLoading/PageLoading";
+import { getClients } from "../../../../../redux/actions/clientActions";
+import PageLoading from "../../../../../components/UI/PageLoading/PageLoading";
 
 const Clients = () => {
   const { client } = useSelector(store => store);
@@ -32,7 +32,7 @@ const Clients = () => {
         </div>
         <div>
           <input placeholder="Search Clients" />
-          <Button type="yellow">Add Clients</Button>
+          <Button type="yellow" isLink to="/dashboard/users/clients/add">Add Clients</Button>
         </div>
       </div>
       <div className={`mt-md ${classes.table}`}>

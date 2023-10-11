@@ -1,29 +1,33 @@
-import Button from "../../../../components/UI/Button/Button";
+import Button from "../../../../../components/UI/Button/Button";
 import classes from "./Talents.module.css";
-import Edit from "../../../../assets/images/icons/edit.svg";
-import Delete from "../../../../assets/images/icons/delete.svg";
-import Archive from "../../../../assets/images/icons/archive.svg";
-import Mail from "../../../../assets/images/icons/mail.svg";
+import Edit from "../../../../../assets/images/icons/edit.svg";
+import Delete from "../../../../../assets/images/icons/delete.svg";
+import Archive from "../../../../../assets/images/icons/archive.svg";
+import Mail from "../../../../../assets/images/icons/mail.svg";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "../../../../redux/store";
-import { getTalents } from "../../../../redux/actions/talentActions";
-import PageLoading from "../../../../components/UI/PageLoading/PageLoading";
+import { useDispatch, useSelector } from "../../../../../redux/store";
+import { getTalents } from "../../../../../redux/actions/talentActions";
+import PageLoading from "../../../../../components/UI/PageLoading/PageLoading";
 
-const Talents = () => {
+const Talents = () =>
+{
   const [checkAll, setCheckAll] = useState(true);
-  const { talent } = useSelector(store => store);
+  const { isLoading, talents } = useSelector(store => store.talent);
 
   const dispatch = useDispatch()
 
-  const handleCheckAll = (e) => {
+  const handleCheckAll = (e) =>
+  {
     setCheckAll(e.target.checked);
   };
 
-  useEffect(() => {
+  useEffect(() =>
+  {
     dispatch(getTalents());
   }, [])
 
-  if (talent.isLoading) {
+  if (isLoading)
+  {
     return <PageLoading />
   }
 
@@ -37,7 +41,7 @@ const Talents = () => {
         </div>
         <div>
           <input placeholder="Search Talents" />
-          <Button type="yellow">Add Talents</Button>
+          <Button type="yellow" isLink to="/dashboard/users/talents/add">Add Talents</Button>
         </div>
       </div>
       <div className={`mt-md ${classes.table}`}>
@@ -50,7 +54,7 @@ const Talents = () => {
           <span>Actions</span>
         </div>
         <hr />
-        {talent.talents.map((item, i) => (
+        {talents.map((item, i) => (
           <MAPPED_DATA
             key={`admin-${i}`}
             name={`${item.firstName ?? ''} ${item.lastName ?? ''}`}
@@ -65,10 +69,12 @@ const Talents = () => {
 
 export default Talents;
 
-const MAPPED_DATA = ({ name, position, email, lastUpdated, image }) => {
+const MAPPED_DATA = ({ name, position, email, lastUpdated, image }) =>
+{
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleCheck = (e) => {
+  const handleCheck = (e) =>
+  {
     setIsChecked(e.target.checked);
   };
   return (

@@ -8,26 +8,8 @@ import { Link } from "react-router-dom";
 
 const Jobs = () =>
 {
-  const BTN_ARRAY = [
-    {
-      text: "Active",
-      count: 0,
-    },
-    {
-      text: "Applied",
-      count: 0,
-    },
-    {
-      text: "Archived",
-      count: 0,
-    },
-    {
-      text: "Completed",
-      count: 0,
-    },
-  ];
-  const JOBS_ARRAY = [
-    {
+  const JOBS_ARRAY = {
+    Active: [{
       job: "Product Lead",
       company: "Gidimo",
       location: "Wuse 2, Abuja",
@@ -35,6 +17,7 @@ const Jobs = () =>
       time: "45 mins ago",
       price: "₦450,000",
       candidates: "3",
+      status: "Active",
     },
     {
       job: "Product Lead",
@@ -44,29 +27,35 @@ const Jobs = () =>
       time: "45 mins ago",
       price: "₦450,000",
       candidates: "3",
-    },
-    {
+      status: "Active",
+    }],
+    Applied: [],
+    Archived: [],
+    Completed: [{
       job: "Product Lead",
       company: "Gidimo",
       location: "Wuse 2, Abuja",
       duration: "Full time",
       time: "45 mins ago",
-      price: "₦450,000",
+      price: "₦480,000",
       candidates: "3",
-    },
-  ];
+      status: "Completed",
+    }]
+  };
+
   const [currentPage, setCurrentPage] = useState("Active");
+
   return (
     <div>
       <h2>Jobs</h2>
       <div className={`flex  mt-sm ${classes.btn}`}>
-        {BTN_ARRAY.map((item, i) => (
+        {Object.keys(JOBS_ARRAY).map((item, i) => (
           <button
             key={`btn-${i}`}
-            onClick={() => setCurrentPage(item.text)}
-            className={currentPage === item.text ? classes.active : ""}
+            onClick={() => setCurrentPage(item)}
+            className={currentPage === item ? classes.active : ""}
           >
-            {item.text} {item.count}
+            {item} &nbsp; {JOBS_ARRAY[item].length}
           </button>
         ))}
         <Button type="yellow">Create Jobs</Button>
@@ -83,39 +72,44 @@ const Jobs = () =>
           <span>Actions</span>
         </div>
         <hr />
-        {JOBS_ARRAY.map(
-          (
-            { job, company, location, duration, time, price, candidates },
-            i
-          ) => (
-            <Link
-              className={classes.grid}
-              key={`job-${i}`}
-              to="/dashboard/jobs/12334"
-            >
-              <div>
-                <h3>{job}</h3>
-                <p>{company}</p>
-              </div>
-              <span>{location}</span>
-              <span>{duration}</span>
-              <span>{time}</span>
-              <span>{price}</span>
-              <span>{candidates}</span>
-              <div>
-                <button>
-                  <img src={Edit} alt="" />
-                </button>
-                <button>
-                  <img src={Delete} alt="" />
-                </button>
-                <button>
-                  <img src={Archive} alt="" />
-                </button>
-              </div>
-            </Link>
-          )
-        )}
+        {
+          JOBS_ARRAY[currentPage].length > 0 ?
+
+            JOBS_ARRAY[currentPage].map(
+              (
+                { job, company, location, duration, time, price, candidates },
+                i
+              ) => (
+                <Link
+                  className={classes.grid}
+                  key={`job-${i}`}
+                  to="/dashboard/jobs/12334"
+                >
+                  <div>
+                    <h3>{job}</h3>
+                    <p>{company}</p>
+                  </div>
+                  <span>{location}</span>
+                  <span>{duration}</span>
+                  <span>{time}</span>
+                  <span>{price}</span>
+                  <span>{candidates}</span>
+                  <div>
+                    <button>
+                      <img src={Edit} alt="" />
+                    </button>
+                    <button>
+                      <img src={Delete} alt="" />
+                    </button>
+                    <button>
+                      <img src={Archive} alt="" />
+                    </button>
+                  </div>
+                </Link>
+              )
+            ) : (
+              <p className="text-center py-4">No jobs found</p>
+            )}
       </div>
     </div>
   );
